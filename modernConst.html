@@ -18,21 +18,40 @@
 	  tfoot {background-color:lightgreen;}
     table {border: 2px outset darkblue; border-collapse: collapse;}
     th, td {border: 2px inset darkgreen;}
+    #navbar {
+  overflow: hidden;
+  z-index: 1;
+}
     .img-container {
-        margin-left: 500px;
+        margin-left: 570px;
         padding-top: 10px;
-        margin-bottom: 0px;
-        padding-bottom: 20px;
+        margin-bottom: -20px;
       }
+      .main {
+}
+.logo{
+  margin-top: 35px;
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .main {
+  padding-top: 60px;
+}
    </style>
 </head>
 <body>
-  <nav class="navbar-inverse">
-    <div class="container-fluid"></div>
+  <nav class="navbar-inverse" style="background-color: none;">
       <div class="navbar-header">
         <a class="navbar-email" href="mailto:modern.custcare@gmail.com">Email : modern.custcare@gmail.com</a>
       </div>
-      <div class="col-sm-3 col-md-3 col-lg-2 pull-right"><ul class="social-icons">
+      <div class="img-container">
+        <img class="logo" src="C:\Users\saumy\Desktop\rishab\css\mc logo.jpg" alt="logo" width="250">
+        </div>
+      <div class="col-sm-3 col-md-3 col-lg-2 pull-right" style="margin-top: -135px;"><ul class="social-icons">
         <li><a href="https://www.facebook.com/modernsurveillance.mu/
         " target="_blank" class="social-icon" style="color: #3b5999;"> <i class="fa fa-3x fa-facebook-square"></i></a></li>
         <li><a href="https://www.instagram.com/modern.construction/?hl=en
@@ -42,10 +61,7 @@
         </ul></div>
     </div>
   </nav>
-    <div class="img-container">
-    <img class="constLogo" src="C:\Users\saumy\Desktop\rishab\css\mc logo.jpg" alt="logo" width="300" height="200">
-    </div>
-    <nav class="topnav">
+    <nav class="topnav" id="navbar" style="margin-bottom: 100px;">
       <ul>	
         <li><a href="homepage.html" id="menu_1">Home</a></li>
         <li><a href="about.html">About Us</a></li>
@@ -70,17 +86,47 @@
         </div>
       </ul>
     </nav>
-  </div>  
+  <div class=main> 
 <div class="video-container">
-<video class="constVideo" autoplay muted loop style="position: sticky;">
+<figure>
+<video class="constVideo" autoplay muted loop>
         <source src="C:\Users\saumy\Desktop\rishab\css\constructiongif.mp4" type="video/mp4">
       Your browser does not support the video tag.
-</video>
-<div class="overlay-desc">
-    <p class="txtVideo">Modern Construction<br>&emsp;&emsp;&emsp;&ensp;&ensp;<a class="scroll" href="#main">v</a></p>
+</video></div>
+</figure>
+<div class="overlay-desc" style="margin-top: 250px;">
+  <p class="txtVideo" style="margin-bottom: 40px;">Modern Construction</p><br><br>
+        <a class="content" href="#projects">
+          <svg id="more-arrows" href="#projects">
+            <polygon class="arrow-top" points="37.6,27.9 1.8,1.3 3.3,0 37.6,25.3 71.9,0 73.7,1.3 "/>
+            <polygon class="arrow-middle" points="37.6,45.8 0.8,18.7 4.4,16.4 37.6,41.2 71.2,16.4 74.5,18.7 "/>
+            <polygon class="arrow-bottom" points="37.6,64 0,36.1 5.1,32.8 37.6,56.8 70.4,32.8 75.5,36.1 "/>
+          </svg>
+        </a>
+      </div>
 </div>
-</div>
-<div id="main">
+<div class="typewrite" data-period="1000" data-type="['Offices','Houses','Buildings']"><span class="wrap"></span></div>
+<div class="mainscroll">
+  <div id="projects">
    <br><h1 style="text-align: center;">Our Projects</h1><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> 
+  </div>
 </div>
+<footer>
+  <p class="center">&copy; 2020 Modern Innovations</p> 
+</footer>
+</div>
+<script>
+  window.onscroll = function() {myFunction()};
+  
+  var navbar = document.getElementById("navbar");
+  var sticky = navbar.offsetTop;
+  
+  function myFunction() {
+    if (window.pageYOffset >= sticky) {
+      navbar.classList.add("sticky")
+    } else {
+      navbar.classList.remove("sticky");
+    }
+  }
+</script>
 </html>

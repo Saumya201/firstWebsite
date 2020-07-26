@@ -35,11 +35,12 @@ var smtpTransport = nodemailer.createTransport(smtpTransport({
   service: 'gmail',
   auth: {
     user: 'modern.custcare@gmail.com',
-    pass: 'wopntovyiegqecyv'
+    pass: 'qnfxvhalsyfsttmo'
   }
 }));
 
  app2.post('/send-email_career', function(req, res) {
+  console.log("Post Path beginning")
   upload(req,res,function(err){
       if(err){
         console.log(err)
@@ -61,16 +62,18 @@ var smtpTransport = nodemailer.createTransport(smtpTransport({
       console.log(req.body.firstname);
           smtpTransport.sendMail(mailOptions, function(error, info) {
            if (error) {
-               return console.log(error);
+            console.log(error);
            }
-           console.log('Message sent: ' + info.response);
+          console.log('Message sent: ' + info.response);
+          console.log("Alert works succesfully")
        });
-       res.redirect(req.get('referer'));
       }
+    res.send('<a href="__dirname+homepage.html">Go back to home</a>');
   })
 });
 
 app.post('/send-email', function(req, res) {
+  console.log("contact path beginning")
     var mailOptions = { 
         from: '"Modern" <modern.custcare@gmail.com>', // sender address
         to: "modern.custcare@gmail.com", // list of receivers
@@ -87,5 +90,5 @@ app.post('/send-email', function(req, res) {
          }
          console.log('Message sent: ' + info.response);
      });
-     res.redirect(req.get('referer'));
+     res.redirect('/');
  });
